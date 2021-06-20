@@ -1,11 +1,17 @@
 #!/bin/bash -e
 
 while read -r line; do
-    read -r kernel < "/${line}"
-	version=$(basename "${line%/pkgbase}")
-	vmlinuz="/${line%'/pkgbase'}/vmlinuz"
+    if [[ $line != */vmlinuz ]]; then
+        # triggers when it's a change to usr/lib/systemd/*
+        continue
+    fi
 
-	echo ":: Installing $kernel-$version"
+    if ! read -r pkgbase > /dev/null 2>&1 < "${line%/vmlinuz}/pkgbase"; then
+        # if the kernel has no pkgbase, we skip it
+        continue
+    fi
 
-    kernel-install $1 "${version}" "${vmlinuz}"
+    version=$(basename "${line%/vmlinuz}")
+
+    kernel-install $1 "${version}" "${line}"
 done

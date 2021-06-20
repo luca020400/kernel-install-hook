@@ -2,10 +2,11 @@
 Type = Path
 Operation = Install
 Operation = Upgrade
-Target = usr/lib/modules/*/pkgbase
+Target = usr/lib/modules/*/vmlinuz
+Target = use/lib/systemd/*
 
 [Action]
-Description = Installing kernel...
+Description = Updating linux initcpios...
 When = PostTransaction
 Exec = /usr/share/libalpm/scripts/kernel-install add
 NeedsTargets

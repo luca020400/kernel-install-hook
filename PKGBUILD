@@ -9,16 +9,16 @@ arch=('any')
 license=('MIT')
 depends=('systemd')
 source=(
+  "60-kernel-install-remove.hook"
+  "90-kernel-install-add.hook"
   "kernel-install"
-  "90-kernel-install.hook"
-  "90-kernel-remove.hook"
 )
-sha256sums=('aeae1c3c28c85e324886cbe123aa4815447502344401fe85173248cfdc014387'
-            '765817f0b58a4f5fab7a404f4cb07d0df32d7d092d18a36aa3f93968199113da'
-            'd7c61213be16a540de05f942e9ad759f98aa2441d30db0c7e059fa1bd478685c')
+sha256sums=('3b065aa2c405b720ae8b32c224f2c3a49197b716657232899da3e94d2de688ae'
+            '1353b581e2db787e31802881b73e01d28c24ca66487ddca114796cffbc41fe38'
+            '7693a0ebb543d6b04988d7e8e8e58e9bfd2a73e67b0a22143172f25cad53d6ef')
 
 package() {
-  install -Dm644 "${srcdir}/90-kernel-install.hook" "${pkgdir}/usr/share/libalpm/hooks/90-kernel-install.hook"
-  install -Dm644 "${srcdir}/90-kernel-remove.hook"  "${pkgdir}/usr/share/libalpm/hooks/90-kernel-remove.hook"
-  install -Dm755 "${srcdir}/kernel-install"         "${pkgdir}/usr/share/libalpm/scripts/kernel-install"
+  install -Dm644 "${srcdir}/60-kernel-install-remove.hook" "${pkgdir}/usr/share/libalpm/hooks/60-kernel-install-remove.hook"
+  install -Dm644 "${srcdir}/90-kernel-install-add.hook" "${pkgdir}/usr/share/libalpm/hooks/90-kernel-install-add.hook"
+  install -Dm755 "${srcdir}/kernel-install" "${pkgdir}/usr/share/libalpm/scripts/kernel-install"
 }
