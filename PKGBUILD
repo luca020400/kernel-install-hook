@@ -1,7 +1,7 @@
 # Maintainer: Tilmann Meyer <allescrafterx@gmail.com>
 
 pkgname=kernel-install-hook
-pkgver=0.1.2
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="kernel-install add/remove hook"
 url=https://systemd.io/BOOT_LOADER_SPECIFICATION

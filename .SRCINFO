@@ -1,19 +1,18 @@
 pkgbase = kernel-install-hook
 	pkgdesc = kernel-install add/remove hook
-	pkgver = 0.1.2
+	pkgver = 0.2.0
 	pkgrel = 1
 	url = https://systemd.io/BOOT_LOADER_SPECIFICATION
 	arch = any
 	license = MIT
 	depends = systemd
+	source = 60-kernel-install-remove.hook
+	source = 90-kernel-install-add.hook
+	source = override.hook
 	source = kernel-install
-	source = kernel-reconfigure
-	source = 90-kernel-install.hook
-	source = 90-kernel-remove.hook
-	sha256sums = aeae1c3c28c85e324886cbe123aa4815447502344401fe85173248cfdc014387
-	sha256sums = 48c2a937df113e44992663903912f39f7881cf0ad1f4ce6c8accb25a0d674688
-	sha256sums = 765817f0b58a4f5fab7a404f4cb07d0df32d7d092d18a36aa3f93968199113da
-	sha256sums = d7c61213be16a540de05f942e9ad759f98aa2441d30db0c7e059fa1bd478685c
+	sha256sums = 3b065aa2c405b720ae8b32c224f2c3a49197b716657232899da3e94d2de688ae
+	sha256sums = 1353b581e2db787e31802881b73e01d28c24ca66487ddca114796cffbc41fe38
+	sha256sums = ab2f65c7cbc05c59a8031c33f987db17a2f6345372216e5ee7cda64ddc6e8c3a
+	sha256sums = d299d9b3440c0aa3c81e17a9f7f0ea3e0f0f3c9c6f5f8e4078789ebd893768eb
 
 pkgname = kernel-install-hook
-
